@@ -85,8 +85,27 @@
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title:hover {
+            color: #005bb5;
+            transform: scale(1.02);
+            transition: all 0.3s ease-in-out;
         }
         
         .hero {
@@ -96,13 +115,19 @@
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .hero h1:hover {
+            transform: scale(1.03);
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 2rem auto;
         }
@@ -141,12 +166,12 @@
         }
         
         .service-img {
-            height: 200px;
+            height: 250px;
             background-color: var(--secondary-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 5rem;
             color: var(--light-color);
         }
         
@@ -155,9 +180,10 @@
         }
         
         .service-title {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             margin-bottom: 0.5rem;
             color: var(--primary-color);
+            font-weight: 600;
         }
         
         .about-content {
@@ -173,12 +199,12 @@
         .about-image {
             flex: 1;
             background-color: var(--secondary-color);
-            height: 300px;
+            height: 350px;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
+            font-size: 6rem;
             color: var(--light-color);
         }
         
@@ -394,11 +420,10 @@
                 <p><strong>Teléfono:</strong> 614-172-9187</p>
                 <p><strong>Email:</strong> ellig5@yahoo.com.mx</p>
                 <p><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM</p>
-                <p><strong>Formulario de Solicitud:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCgatJxW3AoSNRmdx3DRUYCnW0aubbp5YJSLwZ46gXXKV_UQ/viewform?usp=header" target="_blank">Haz clic aqui para llenar el formulario</a></p>
 
                 <div class="formulario-boton-container">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCgatJxW3AoSNRmdx3DRUYCnW0aubbp5YJSLwZ46gXXKV_UQ/viewform?usp=header" target="_blank" class="boton-formulario">
-                        Llenar Formulario de Solicitud 
+                        Llena el Formulario de Solicitud para tu Servicio
                     </a>
                 </div>
                 
