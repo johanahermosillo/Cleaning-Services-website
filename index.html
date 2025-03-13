@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de Limpieza Profesional - Casas y Oficinas</title>
+    <style>
+        :root {
+            --primary-color: #0078d4;
+            --secondary-color: #83c5ff;
+            --accent-color: #e6f4ff;
+            --text-color: #333;
+            --light-color: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--light-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            padding: 1rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            background-color: var(--accent-color);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--light-color);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            background-color: var(--secondary-color);
+            height: 300px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: var(--light-color);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .footer-links ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .schedule-banner {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Servicio personalizado */
+        #custom-service-form {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">CleanUp</div>
+            <div class="tagline">Servicios de Limpieza Profesional para Casas y Oficinas</div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Limpieza Profesional de Calidad</h1>
+            <p>Ofrecemos servicios especializados de limpieza para casas particulares y oficinas en edificios. Nuestro equipo profesional se dedica a mantener sus espacios impecables y saludables.</p>
+            <div class="schedule-banner">
+                Horario de atención: Lunes a Viernes de 8:00 AM a 6:00 PM
+            </div>
+            <a href="#contacto" class="btn">Solicitar Presupuesto</a>
+        </div>
+    </section>
+    
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">🏠</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Limpieza de Casas</h3>
+                        <p>Mantenemos su hogar impecable con servicios personalizados de limpieza regular o profunda para todas las habitaciones y áreas de su casa.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">🏢</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Limpieza de Oficinas</h3>
+                        <p>Servicios profesionales para oficinas en edificios con horarios flexibles entre 8:00 AM y 6:00 PM para no interrumpir sus operaciones.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">🪟</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Limpieza de Vidrios</h3>
+                        <p>Especialistas en limpieza de ventanas y superficies cristalinas tanto en hogares como en oficinas para resultados impecables y brillantes.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">🧽</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Limpieza Profunda</h3>
+                        <p>Servicio intensivo que incluye áreas difíciles, eliminación de manchas persistentes y desinfección completa de casas y espacios de trabajo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="schedule-banner" style="margin: 3rem auto; max-width: 800px;">
+                Todos nuestros servicios disponibles de 8:00 AM a 6:00 PM
+            </div>
+            
+            <div id="custom-service-form">
+                <h3>Personalice su Servicio</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="service-type">Tipo de Propiedad</label>
+                        <select id="service-type">
+                            <option value="residential">Casa particular</option>
+                            <option value="office">Oficina en edificio</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Servicios Requeridos</label>
+                        <div>
+                            <input type="checkbox" id="floors"> <label for="floors">Limpieza de pisos</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="windows"> <label for="windows">Limpieza de ventanas</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="furniture"> <label for="furniture">Limpieza de muebles</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="bathroom"> <label for="bathroom">Limpieza de baños</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="kitchen"> <label for="kitchen">Limpieza de cocina</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="disinfection"> <label for="disinfection">Desinfección</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="frequency">Frecuencia</label>
+                        <select id="frequency">
+                            <option value="once">Una vez</option>
+                            <option value="weekly">Semanal</option>
+                            <option value="biweekly">Quincenal</option>
+                            <option value="monthly">Mensual</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferred-time">Horario Preferido</label>
+                        <select id="preferred-time">
+                            <option value="8-10">8:00 AM - 10:00 AM</option>
+                            <option value="10-12">10:00 AM - 12:00 PM</option>
+                            <option value="12-2">12:00 PM - 2:00 PM</option>
+                            <option value="2-4">2:00 PM - 4:00 PM</option>
+                            <option value="4-6">4:00 PM - 6:00 PM</option>
+                            <option value="8-6">Between 8:00 AM - 6:00 PM</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="special-requests">Solicitudes Especiales</label>
+                        <textarea id="special-requests" placeholder="Describa cualquier necesidad o requisito específico"></textarea>
+     
+                        <section id="servicios">
+                            <div class="container">
+                                <h2 class="section-title">Nuestros Servicios</h2>
+                                <div class="services-grid">
+                                    <div class="service-card">
+                                        <div class="service-img">🏠</div>
+                                        <div class="service-content">
+                                            <h3 class="service-title">Limpieza de Casas</h3>
+                                            <p>Mantenemos su hogar impecable con servicios personalizados de limpieza regular o profunda para todas las habitaciones y áreas de su casa.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="service-card">
+                                        <div class="service-img">🏢</div>
+                                        <div class="service-content">
+                                            <h3 class="service-title">Limpieza de Oficinas</h3>
+                                            <p>Servicios profesionales para oficinas en edificios con horarios flexibles entre 8:00 AM y 6:00 PM para no interrumpir sus operaciones.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="service-card">
+                                        <div class="service-img">🪟</div>
+                                        <div class="service-content">
+                                            <h3 class="service-title">Limpieza de Vidrios</h3>
+                                            <p>Especialistas en limpieza de ventanas y superficies cristalinas tanto en hogares como en oficinas para resultados impecables y brillantes.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="service-card">
+                                        <div class="service-img">🧽</div>
+                                        <div class="service-content">
+                                            <h3 class="service-title">Limpieza Profunda</h3>
+                                            <p>Servicio intensivo que incluye áreas difíciles, eliminación de manchas persistentes y desinfección completa de casas y espacios de trabajo.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-banner" style="margin: 3rem auto; max-width: 800px;">
+                                    Todos nuestros servicios disponibles de 8:00 AM a 6:00 PM
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="nosotros">
+                            <div class="container">
+                                <h2 class="section-title">Sobre Nosotros</h2>
+                                <div class="about-content">
+                                    <div class="about-text">
+                                        <p>Somos una empresa de limpieza comprometida con la excelencia y la satisfacción del cliente. Con años de experiencia en el sector, nuestro equipo profesional está capacitado para manejar todo tipo de servicios de limpieza en casas particulares y oficinas.</p>
+                                        <p>Utilizamos equipos y productos de alta calidad que garantizan resultados óptimos sin dañar el medio ambiente. Nuestro personal está completamente capacitado y verificado, asegurando un servicio confiable y de calidad.</p>
+                                        <p>Entendemos que cada espacio es único, por lo que ofrecemos soluciones personalizadas que se adaptan a sus necesidades específicas y horarios. Su satisfacción es nuestra prioridad número uno.</p>
+                                    </div>
+                                    <div class="about-image">🧹</div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section id="contacto">
+                            <div class="container">
+                                <h2 class="section-title">Contacto</h2>
+                                
+                                <div class="contact-info">
+                                    <h3>Información de Contacto</h3>
+                                    <p><strong>Teléfono:</strong> 614-172-9187</p>
+                                    <p><strong>Email:</strong> ellig5@yahoo.com.mx</p>
+                                    <p><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 AM a 6:00 PM</p>
+                                </div>
+                                
+                                <div class="contact-form">
+                                    <h3>Solicitar Presupuesto</h3>
+                                    <form action="mailto:ellig5@yahoo.com.mx" method="post" enctype="text/plain">
+                                        <div class="form-group">
+                                            <label for="name">Nombre Completo</label>
+                                            <input type="text" id="name" name="name" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="email">Correo Electrónico</label>
+                                            <input type="email" id="email" name="email" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="phone">Teléfono</label>
+                                            <input type="tel" id="phone" name="phone" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="address">Dirección</label>
+                                            <input type="text" id="address" name="address" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="service-type">Tipo de Servicio</label>
+                                            <select id="service-type" name="service-type">
+                                                <option value="casa">Limpieza de
